@@ -11,7 +11,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        return Response::json(Comment::get());
+        return \Response::json(Comment::get());
     }
 
 
@@ -28,7 +28,7 @@ class CommentController extends Controller
             'text' => Input::get('text')
         ));
 
-        return Response::json(array('success' => true));
+        return \Response::json(array('success' => true));
     }
 
     public function show($id)
@@ -50,6 +50,6 @@ class CommentController extends Controller
     {
         Comment::destroy($id);
 
-        return Response::json(array('success' => true));
+        return \Response::json(array('success' => true));
     }
 }
