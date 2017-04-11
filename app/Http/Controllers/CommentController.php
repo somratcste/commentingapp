@@ -23,10 +23,15 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        Comment::create(array(
-            'author' => Input::get('author'),
-            'text' => Input::get('text')
-        ));
+//        Comment::create(array(
+//            'author' => Input::get('author'),
+//            'text' => Input::get('text')
+//        ));
+
+        $comment = new Comment();
+        $comment->author = $request->input('author');
+        $comment->text = $request->input('text');
+        $comment->save();
 
         return \Response::json(array('success' => true));
     }
